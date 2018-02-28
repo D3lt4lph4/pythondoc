@@ -12,4 +12,3 @@ This is intended to be used with Mkdocs.
 - create the yml file for mkdocs
 - run the autogen file
 - run mkdocs serve
-

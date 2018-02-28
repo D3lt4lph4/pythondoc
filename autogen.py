@@ -227,11 +227,9 @@ def parse_detailled_classes(to_be_detailled):
             # Ignoring the private functions
             if function[0][0] == '_':
                 continue
-            # Ignoring the properties
-            if isinstance(function[1], property):
-                continue
-            subblock = parse_function(function[1], '###')
-            blocks.append('\n\n'.join(subblock))
+            if type(function[1]) == types.FunctionType:
+                subblock = parse_function(function[1], '###')
+                blocks.append('\n\n'.join(subblock))
     return '\n***\n\n'.join(blocks)
 
 def parse_all_module_functions(to_be_detailled):
