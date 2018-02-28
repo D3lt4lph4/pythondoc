@@ -4,6 +4,7 @@ import os
 from os.path import dirname
 import shutil
 import argparse
+import types 
 
 from importlib import import_module
 
