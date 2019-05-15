@@ -1,0 +1,14 @@
+site_name: Template example for simple doc generation 
+
+theme: readthedocs
+
+docs_dir: sources
+
+pages:
+- Home: index.md
+- my_module_1:
+  - boo: my_module_1/boo.md
+  - foo: my_module_1/foo.md
+- my_module_2:
+  - boo: my_module_2/boo.md
+  - foo: my_module_2/foo.md
