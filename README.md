@@ -65,3 +65,4 @@ tag in the "index.md" file in the template folder of "docs". To prevent this beh
 Things to do:
 
 - Set the hints in the description of the function
+- args and kwargs
