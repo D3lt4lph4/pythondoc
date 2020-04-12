@@ -2,13 +2,15 @@ site_name: Template example for simple doc generation
 
 theme: readthedocs
 
-docs_dir: sources
+docs_dir: docs/sources
 
 pages:
 - Home: index.md
 - my_module_1:
-  - boo: my_module_1/boo.md
+  - Introduction: my_module_1/index.md
+  - Some Functions: my_module_1/some_functions.md
   - foo: my_module_1/foo.md
 - my_module_2:
+  - Introduction: my_module_2/index.md
   - boo: my_module_2/boo.md
   - foo: my_module_2/foo.md
