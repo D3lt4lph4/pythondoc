@@ -150,10 +150,24 @@ def class_to_docs_link(cls):
 
 
 def function_to_source_link(function):
+    """ Create a markdown link to the function provided.
+    
+    # Argument:
+        - The function we want the link to point to.
+
+    # Return:
+        A string with a link to the function in github.
+    """
+
+    # Get the path of the file holding the function
     module_name = function.__module__
     path = module_name.replace('.', '/')
     path += '.py'
+
+    # Get the line of the function in the file
     line = inspect.getsourcelines(function)[-1]
+
+    # Setting the link to the github file
     link = (git_path + path + '#L' + str(line))
     return '[[source]](' + link + ')'
 
@@ -207,6 +221,7 @@ def process_docstring(docstring):
             docstring = docstring.replace(snippet,
                                           '$CODE_BLOCK_%d' % len(code_blocks))
             snippet_lines = snippet.split('\n')
+
             # Remove leading and trailing spaces.
             num_leading_spaces = snippet_lines[-1].find('`')
             snippet_lines = ([snippet_lines[0]] +
@@ -232,7 +247,7 @@ def process_docstring(docstring):
 
 
 def parse_function(function, indentation):
-    """ Parse the function as set in the __doc__ argument.
+    """ Parse the function provided and set __doc__ argument as description.
     
     # Arguments:
         function: The function to be parsed
@@ -364,6 +379,14 @@ def parse_all_module_functions(to_be_detailled):
 
 
 def parse_functions(to_be_detailled):
+    """ Parse all the function provided.
+
+    # Argument:
+        - to_be_detailled: A list of function to process.
+    
+    # Return:
+        The blocks of processed functions.
+    """
     blocks = []
     for function in to_be_detailled:
         subblocks = parse_function(function, '### ')
