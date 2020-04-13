@@ -232,12 +232,13 @@ def process_docstring(docstring):
     return docstring
 
 
-def parse_function(function, indentation):
+def parse_function(function, indentation, method=False):
     """ Parse the function provided and set __doc__ argument as description.
     
     # Arguments:
-        function: The function to be parsed
-        indentation: The indentation that should be added at the begining of the function.
+        - function: The function to be parsed
+        - indentation: The indentation that should be added at the begining of the function.
+        - method: If the function to parse is a class method.
     
     # Returns:
         A string, the parsed function.
@@ -247,12 +248,12 @@ def parse_function(function, indentation):
     # Get the signature of the function and set it as a header
     subblock.append('<span style="float:right;">' +
                     function_to_source_link(function) + '</span>')
-    signature = get_function_signature(function, method=False)
+    signature = get_function_signature(function, method=method)
     signature = signature.replace(function.__module__ + '.', '')
     subblock.append(indentation + ' ' + function.__name__ + '\n')
 
     # We get the signature of the function and set it as python code
-    signature = get_function_signature(function, method=False)
+    signature = get_function_signature(function, method=method)
     subblock.append(code_snippet(signature))
 
     # Get the docstring and add it to the block of documentation
@@ -339,7 +340,7 @@ def parse_classes(to_be_detailled):
             # Ignoring the properties
             if isinstance(function[1], property):
                 continue
-            subblock = parse_function(function[1], '###')
+            subblock = parse_function(function[1], '###', method=True)
             blocks.append('\n\n'.join(subblock))
     return '\n***\n\n'.join(blocks)
 
