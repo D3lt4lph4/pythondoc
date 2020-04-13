@@ -1,1 +1,2 @@
 from .some_functions import this_function_is_parsed, this_function_is_also_parsed, but_not_this_one
+from .some_classes import TheClassParsed, TheClassAlsoParsed
