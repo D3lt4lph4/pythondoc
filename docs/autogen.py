@@ -116,14 +116,6 @@ def get_class_signature(cls):
     return class_signature
 
 
-def class_to_docs_link(cls):
-    module_name = cls.__module__
-    assert module_name[:6] == 'keras.'
-    module_name = module_name[6:]
-    link = ROOT + module_name.replace('.', '/') + '#' + cls.__name__.lower()
-    return link
-
-
 def function_to_source_link(function):
     """ Create a markdown link to the function provided.
     
@@ -170,18 +162,18 @@ def class_to_source_link(cls):
 
 
 def code_snippet(snippet):
+    """ Adds the python code tags
+
+    # Argument:
+        - snippet: The code to have the tags around.
+
+    # Return:
+        The code with the tags.
+    """
     result = '```python\n'
     result += snippet + '\n'
     result += '```\n'
     return result
-
-
-def count_leading_spaces(s):
-    ws = re.search('\S', s)
-    if ws:
-        return ws.start()
-    else:
-        return 0
 
 
 def process_docstring(docstring):
