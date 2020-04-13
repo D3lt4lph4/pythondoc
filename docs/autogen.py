@@ -85,7 +85,10 @@ def get_function_signature(function, method=True):
         default_values = []
 
     # Get the full module for the function
-    st = '%s.%s(' % (function.__module__, function.__name__)
+    if not method:
+        st = '%s.%s(' % (function.__module__, function.__name__)
+    else:
+        st = '%s(' % function.__name__
 
     for a in args:
         st += str(a) + ', '
@@ -248,8 +251,9 @@ def parse_function(function, indentation, method=False):
     # Get the signature of the function and set it as a header
     subblock.append('<span style="float:right;">' +
                     function_to_source_link(function) + '</span>')
-    signature = get_function_signature(function, method=method)
-    signature = signature.replace(function.__module__ + '.', '')
+
+    # We don't need the module for the header
+    signature = get_function_signature(function, method=True)
     subblock.append(indentation + ' ' + function.__name__ + '\n')
 
     # We get the signature of the function and set it as python code
@@ -344,12 +348,39 @@ def parse_classes(to_be_detailled):
             blocks.append('\n\n'.join(subblock))
     return '\n***\n\n'.join(blocks)
 
+def parse_all_classes_module(to_be_detailled):
+    """ Parse the to_be_detailled (a module) and return a block with the corresponding documentation.
+
+    # Arguments
+        - to_be_detailled: A list, the module to be detailled.
+
+    # Return
+        A string (block) with the documentation to be written.
+    """
+    for module in to_be_detailled:
+        blocks = []
+        for name in dir(module):
+            # If default function from python, skip
+            if name[0] == '_':
+                continue
+
+            # Getting all the functions and more
+            module_member = getattr(module, name)
+
+            # Check to process only the functions
+            if inspect.isfunction(module_member):
+                # Process the function
+                function = module_member
+                if module.__name__ in function.__module__:
+                    subblocks = parse_function(function, '### ')
+                    blocks.append('\n\n'.join(subblocks))
+    return '\n***\n\n'.join(blocks)
 
 def parse_all_functions_module(to_be_detailled):
     """ Parse the to_be_detailled (a module) and return a block with the corresponding documentation.
 
     # Arguments
-        to_be_detailled: A list, the module to be detailled.
+        - to_be_detailled: A list, the module to be detailled.
 
     # Return
         A string (block) with the documentation to be written.
