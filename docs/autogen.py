@@ -77,6 +77,8 @@ def get_function_signature(function, method=True):
     # Getting the default values for the arguments
     defaults = signature.defaults
     annotations = signature.annotations
+    varargs = signature.varargs
+    varkw = signature.varkw
 
     if defaults:
         default_values = zip(args[-len(defaults):], defaults)
@@ -91,7 +93,10 @@ def get_function_signature(function, method=True):
         st = '%s(' % function.__name__
 
     for a in args:
-        st += str(a) + ', '
+        if annotations:
+            st += str(a) + ": " + annotations[a].__name__ + ', '
+        else:
+            st += str(a) + ', '
 
     for a, v in default_values:
         if isinstance(v, str):
@@ -100,6 +105,12 @@ def get_function_signature(function, method=True):
             st += str(a) + ": " + annotations[a].__name__ + '=' + str(v) + ', '
         else:
             st += str(a) + '=' + str(v) + ', '
+
+    if varargs is not None:
+        st += "*args, "
+
+    if varkw is not None:
+        st += "**kwargs, "
 
     if default_values or args:
         signature = st[:-2] + ')'

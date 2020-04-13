@@ -2,7 +2,7 @@
 
 This was taken from the Keras github and then modified a bit to make it more modular, they have a nice tool for auto-documentation generation but as far as I know they use it only for their project and it cannot be used on other project.
 
-This is intended to be used with Mkdocs. 
+This is intended to be used with Mkdocs.
 
 ## Generating the documentation
 
@@ -64,6 +64,4 @@ tag in the "index.md" file in the template folder of "docs". To prevent this beh
 
 Things to do:
 
-- Set the hints in the description of the function
-- args and kwargs
 - finalize readme

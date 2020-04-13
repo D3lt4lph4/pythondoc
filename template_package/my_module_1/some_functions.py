@@ -1,7 +1,7 @@
 import numpy as np
 
 
-def this_function_is_parsed(param_1: int, param_2: int):
+def this_function_is_parsed(param_1: int, param_2: int, *args, **kwargs):
     """ The same function adds two numbers.
 
     # Arguments:
