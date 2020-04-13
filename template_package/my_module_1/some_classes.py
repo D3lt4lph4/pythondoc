@@ -1,15 +1,15 @@
 import numpy as np
 
 
-def this_function_is_not_parsed(param1: int, param2: int):
+def this_function_is_not_parsed(param_1: int, param_2: int):
     """ The same function adds two numbers.
 
     # Arguments:
-        - param1: An int, to be summed.
-        - param2: Also an int, but you could pass a float, we're not checking anything (seriously pass an int).
+        - param_1: An int, to be summed.
+        - param_2: Also an int, but you could pass a float, we're not checking anything (seriously pass an int).
     
     # Return:
-        - The sum of param1 and param2.
+        - The sum of param_1 and param_2.
 
     # Example:
 
@@ -18,37 +18,37 @@ def this_function_is_not_parsed(param1: int, param2: int):
     ```        
     """
 
-    return param1 + param2
+    return param_1 + param_2
 
 
-def this_function_is_also_not_parsed(param1: int = 5, param2: int = 3):
+def this_function_is_also_not_parsed(param_1: int = 5, param_2: int = 3):
     """ The same function as this_function_is_parsed, but with default args.
 
     # Arguments:
-        - param1: An int, to be summed.
-        - param2: Also an int, but you could pass a float, we're not checking anything (seriously pass an int).
+        - param_1: An int, to be summed.
+        - param_2: Also an int, but you could pass a float, we're not checking anything (seriously pass an int).
     
     # Return:
-        - The sum of param1 and param2.
+        - The sum of param_1 and param_2.
 
     """
 
-    return param1 + param2
+    return param_1 + param_2
 
 
-def and_this_one_as_well(param1: int, param2: int):
+def and_this_one_as_well(param_1: int, param_2: int):
     """ The same function as foo_1 from my_module_1 but with a different name.
 
     # Arguments:
-        - param1: An int, to be summed.
-        - param2: Also an int, but you could pass a float, we're not checking anything (seriously pass an int).
+        - param_1: An int, to be summed.
+        - param_2: Also an int, but you could pass a float, we're not checking anything (seriously pass an int).
     
     # Return:
-        - The sum of param1 and param2.
+        - The sum of param_1 and param_2.
 
     """
 
-    return param1 + param2
+    return param_1 + param_2
 
 
 class TheClassNotParsed(object):
@@ -64,45 +64,45 @@ class TheClassNotParsed(object):
 
 class TheClassParsed(object):
     def __init__(self, init_1, init_2):
-        """ The same function as foo_1 from my_module_1 but with a different name.
+        """ The init function of the class, used to describe the class.
 
         # Arguments:
-            - param1: An int, to be summed.
-            - param2: Also an int, but you could pass a float, we're not checking anything (seriously pass an int).
+            - param_1: An int, to be summed.
+            - param_2: Also an int, but you could pass a float, we're not checking anything (seriously pass an int).
         
         # Return:
-            - The sum of param1 and param2.
+            - The sum of param_1 and param_2.
 
         """
         pass
 
-    def addition(self, param1: int, param2: int):
+    def addition(self, param_1: int, param_2: int):
         """ The same function as foo_1 from my_module_1 but with a different name.
 
         # Arguments:
-            - param1: An int, to be summed.
-            - param2: Also an int, but you could pass a float, we're not checking anything (seriously pass an int).
+            - param_1: An int, to be summed.
+            - param_2: Also an int, but you could pass a float, we're not checking anything (seriously pass an int).
         
         # Return:
-            - The sum of param1 and param2.
+            - The sum of param_1 and param_2.
 
         """
-        return param1 + param2
+        return param_1 + param_2
 
     def also_addition_but_with_pre_set_value(self,
-                                             param1: int = 5,
-                                             param2: int = 3):
+                                             param_1: int = 5,
+                                             param_2: int = 3):
         """ The same function as foo_1 from my_module_1 but with a different name.
 
         # Arguments:
-            - param1: An int, to be summed.
-            - param2: Also an int, but you could pass a float, we're not checking anything (seriously pass an int).
+            - param_1: An int, to be summed.
+            - param_2: Also an int, but you could pass a float, we're not checking anything (seriously pass an int).
         
         # Return:
-            - The sum of param1 and param2.
+            - The sum of param_1 and param_2.
 
         """
-        return param1 + param2
+        return param_1 + param_2
 
 
 class TheClassAlsoParsed(object):
