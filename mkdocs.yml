@@ -13,4 +13,5 @@ pages:
 - my_module_2:
   - Introduction: my_module_2/index.md
   - All Functions Module: my_module_2/all_functions_module.md
+  - All Classes Module: my_module_2/all_classes_module.md
   - foo: my_module_2/foo.md
