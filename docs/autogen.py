@@ -372,7 +372,7 @@ def parse_all_classes_module(to_be_detailled):
                 # Process the class
                 class_to_parse = module_member
                 if module.__name__ in class_to_parse.__module__:
-                    subblocks = parse_class(class_to_parse, '## ')
+                    subblocks = parse_class(class_to_parse, '##')
                     blocks.append('\n\n'.join(subblocks))
                     # Parse the methods of the class
                     for function in inspect.getmembers(class_to_parse):

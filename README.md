@@ -66,4 +66,4 @@ Things to do:
 
 - Set the hints in the description of the function
 - args and kwargs
-- display correct tree in doc
+- finalize readme
