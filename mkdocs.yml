@@ -4,7 +4,7 @@ theme: readthedocs
 
 docs_dir: docs/sources
 
-pages:
+nav:
 - Home: index.md
 - my_module_1:
   - Introduction: my_module_1/index.md
